@@ -7,14 +7,15 @@
 plugins {
   id 'com.github.ben-manes.versions' version '0.38.0'
   id 'application'
+  id 'checkstyle'
 }
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+  mainClass = 'hexlet.code.App'
 }
 
 sourceCompatibility = '16'
@@ -24,7 +25,7 @@ compileJava {
 }
 
 run{
-    standardInput = System.in
+  standardInput = System.in
 }
 
 group = 'hexlet.code'
