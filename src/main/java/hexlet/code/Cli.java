@@ -13,16 +13,30 @@ public final class Cli {
     System.out.println(message);
   }
 
+  public static void printInLine(String message) {
+    System.out.print(message);
+  }
+
   public static String getAnwer() {
     final Scanner sc = new Scanner(System.in);
-    final String answer = sc.nextLine();
-    sc.close();
+    String answer = "";
+    if (sc.hasNextLine()) {
+      answer = sc.nextLine();
+    }
+    return answer;
+  }
+
+  public static int getNumberAnwer() {
+    final Scanner sc = new Scanner(System.in);
+    final int answer = sc.nextInt();
     return answer;
   }
 
   public static void printSelectGameMessage() {
-    final String message = "Please enter the game number and press Enter. 1 - Greet 2 - Even 0 - Exit";
+    final String message = "Please enter the game number and press Enter.\n 1 - Greet\n 2 - Even\n 0 - Exit";
+    final String inlineMessage = "Your choice: ";
     Cli.printMessage(message);
+    Cli.printInLine(inlineMessage);
   }
 
   public void printCorrectAnswerMessage() {
@@ -44,7 +58,7 @@ public final class Cli {
 
   public static Cli welcome() {
     Cli.printMessage("Welcome to the Brain Games!");
-    Cli.printMessage("May I have your name? ");
+    Cli.printInLine("May I have your name? ");
     final String name = Cli.getAnwer();
     final String message = String.format("Hello, %s!", name);
     Cli.printMessage(message);

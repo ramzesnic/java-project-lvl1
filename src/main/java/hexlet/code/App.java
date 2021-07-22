@@ -6,7 +6,8 @@ public class App {
   private static void runGame(Even game, Cli cli, int runCount) {
     final String descriotion = game.getDescription();
     Cli.printMessage(descriotion);
-    for (int i = 1; i < runCount; i++) {
+    for (int i = 0; i < runCount; i++) {
+      game.run();
       final int question = game.getQuestion();
       Cli.printMessage("Question: " + question);
       final String answer = Cli.getAnwer();
@@ -22,17 +23,17 @@ public class App {
 
   public static void main(String[] args) {
     Cli.printSelectGameMessage();
-    final String action = Cli.getAnwer();
+    final int action = Cli.getNumberAnwer();
     Cli cli;
     final int runCount = 3;
 
     switch (action) {
-      case "1":
+      case 1:
         cli = Cli.welcome();
         break;
-      case "2":
+      case 2:
         cli = Cli.welcome();
-        final Even game = Even.create();
+        final Even game = new Even();
         App.runGame(game, cli, runCount);
       default:
         break;

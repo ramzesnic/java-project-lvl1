@@ -23,17 +23,12 @@ public final class Even {
     return this.trueAnswer.equals(answer);
   }
 
-  public Even(int question, String trueAnswer) {
-    this.question = question;
-    this.trueAnswer = trueAnswer;
-  }
-
-  public static Even create() {
+  public void run() {
     final int minValue = 1;
     final int maxValue = 100;
     final int question = Utils.getRandom(minValue, maxValue);
     final String trueAnswer = Utils.checkEven(question) ? "yes" : "no";
-
-    return new Even(question, trueAnswer);
+    this.question = question;
+    this.trueAnswer = trueAnswer;
   }
 }
