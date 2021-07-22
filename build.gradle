@@ -18,10 +18,10 @@ application {
   mainClass = 'hexlet.code.App'
 }
 
-sourceCompatibility = '16'
+sourceCompatibility = '15'
 
 compileJava {
-  options.release = 16
+  options.release = 15
 }
 
 run{
