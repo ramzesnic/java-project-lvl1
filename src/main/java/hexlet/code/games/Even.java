@@ -26,9 +26,9 @@ public final class Even {
   public void run() {
     final int minValue = 1;
     final int maxValue = 100;
-    final int question = Utils.getRandom(minValue, maxValue);
-    final String trueAnswer = Utils.checkEven(question) ? "yes" : "no";
-    this.question = question;
-    this.trueAnswer = trueAnswer;
+    final int questionValue = Utils.getRandom(minValue, maxValue);
+    final String trueAnswerValue = Utils.checkEven(question) ? "yes" : "no";
+    this.question = questionValue;
+    this.trueAnswer = trueAnswerValue;
   }
 }
