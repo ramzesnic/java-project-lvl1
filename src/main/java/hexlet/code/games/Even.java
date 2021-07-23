@@ -2,8 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Utils;
+import hexlet.code.games.interfaces.GameInterface;
 
-public final class Even {
+public final class Even implements GameInterface {
   private final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
   private Integer question;
   private String trueAnswer;
@@ -33,9 +34,8 @@ public final class Even {
   public void run() {
     final int minValue = 1;
     final int maxValue = 100;
-    final int questionValue = Utils.getRandom(minValue, maxValue);
-    final String trueAnswerValue = Utils.checkEven(question) ? "yes" : "no";
-    this.question = questionValue;
+    this.question = Utils.getRandom(minValue, maxValue);
+    final String trueAnswerValue = Utils.checkEven(this.question) ? "yes" : "no";
     this.trueAnswer = trueAnswerValue;
   }
 }

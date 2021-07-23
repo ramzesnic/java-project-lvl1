@@ -2,8 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Cli;
 import hexlet.code.Utils;
+import hexlet.code.games.interfaces.GameInterface;
 
-public class Calc {
+public final class Calc implements GameInterface {
   private final String description = "What is the result of the expression?";
   private String question;
   private Integer trueAnswer;
@@ -25,7 +26,7 @@ public class Calc {
     return answer.toString();
   }
 
-  public boolean checkAnswer(Integer answer) {
+  public boolean checkAnswer() {
     this.answer = Cli.getNumberAnwer();
     return trueAnswer.equals(answer);
   }
@@ -35,23 +36,26 @@ public class Calc {
     final int maxAction = 3;
     final int minXY = 1;
     final int maxXY = 100;
+    final int sum = 1;
+    final int sub = 2;
+    final int mul = 3;
 
     final int randomActionValue = Utils.getRandom(minAction, maxAction);
     final int x = Utils.getRandom(minXY, maxXY);
     final int y = Utils.getRandom(minXY, maxXY);
 
     switch (randomActionValue) {
-      case 1:
+      case sum:
         this.question = x + " + " + y;
         this.trueAnswer = x + y;
         break;
 
-      case 2:
+      case sub:
         this.question = x + " - " + y;
         this.trueAnswer = x - y;
         break;
 
-      case 3:
+      case mul:
         this.question = x + " * " + y;
         this.trueAnswer = x * y;
 
