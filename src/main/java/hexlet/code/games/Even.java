@@ -1,26 +1,33 @@
 package hexlet.code.games;
 
+import hexlet.code.Cli;
 import hexlet.code.Utils;
 
 public final class Even {
   private final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-  private int question;
+  private Integer question;
   private String trueAnswer;
+  private String answer;
 
   public String getDescription() {
     return description;
   }
 
-  public int getQuestion() {
-    return question;
+  public String getQuestion() {
+    return question.toString();
   }
 
   public String getTrueAnswer() {
     return trueAnswer;
   }
 
-  public boolean checkAnswer(String answer) {
-    return this.trueAnswer.equals(answer);
+  public String getAnswer() {
+    return answer;
+  }
+
+  public boolean checkAnswer() {
+    this.answer = Cli.getAnwer();
+    return this.trueAnswer.equals(this.answer);
   }
 
   public void run() {

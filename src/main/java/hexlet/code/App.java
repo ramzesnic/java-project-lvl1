@@ -8,11 +8,11 @@ public class App {
     Cli.printMessage(descriotion);
     for (int i = 0; i < runCount; i++) {
       game.run();
-      final int question = game.getQuestion();
+      final String question = game.getQuestion();
       Cli.printMessage("Question: " + question);
-      final String answer = Cli.getAnwer();
-      if (!game.checkAnswer(answer)) {
+      if (!game.checkAnswer()) {
         final String trueAnswer = game.getTrueAnswer();
+        final String answer = game.getAnswer();
         cli.printWrongAnswerMessage(trueAnswer, answer);
         return;
       }
