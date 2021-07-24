@@ -20,7 +20,7 @@ public final class Progression extends BaseGame implements GameInterface {
   private String makeQuestion(Integer[] progression, int hiddenIdx) {
     final String[] progressionStr = Arrays.stream(progression).map(el -> el.toString()).toArray(String[]::new);
     progressionStr[hiddenIdx] = "..";
-    return Arrays.toString(progressionStr);
+    return String.join(" ", progressionStr);
   }
 
   public void run() {
