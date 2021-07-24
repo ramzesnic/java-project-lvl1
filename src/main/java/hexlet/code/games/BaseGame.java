@@ -8,8 +8,8 @@ public class BaseGame {
   private Integer trueAnswer;
   private Integer answer;
 
-  public BaseGame(String description) {
-    this.description = description;
+  public BaseGame(String desc) {
+    this.description = desc;
   }
 
   public final String getDescription() {
@@ -28,16 +28,16 @@ public class BaseGame {
     return answer.toString();
   }
 
-  public final void setQuestion(String question) {
-    this.question = question;
+  public final void setQuestion(String quest) {
+    this.question = quest;
   }
 
-  public final void setTrueAnswer(Integer trueAnswer) {
-    this.trueAnswer = trueAnswer;
+  public final void setTrueAnswer(Integer answer) {
+    this.trueAnswer = answer;
   }
 
-  public final void setAnswer(Integer answer) {
-    this.answer = answer;
+  public final void setAnswer(Integer playerAnswer) {
+    this.answer = playerAnswer;
   }
 
   public final boolean checkAnswer() {

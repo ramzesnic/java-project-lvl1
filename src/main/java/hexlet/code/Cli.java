@@ -5,8 +5,8 @@ import java.util.Scanner;
 public final class Cli {
   private String name;
 
-  Cli(String name) {
-    this.name = name;
+  Cli(String playerName) {
+    this.name = playerName;
   }
 
   public static void printMessage(String message) {
