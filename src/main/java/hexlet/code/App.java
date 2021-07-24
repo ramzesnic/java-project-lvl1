@@ -4,6 +4,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Calc;
+import hexlet.code.games.Prime;
 
 public class App {
   public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class App {
     final int calcName = 3;
     final int gcdName = 4;
     final int progressionName = 5;
+    final int primeName = 6;
 
     switch (action) {
       case welcomeName:
@@ -40,6 +42,11 @@ public class App {
         cli = Cli.welcome();
         final Progression progression = new Progression();
         Engine.runGame(progression, cli, runCount);
+        break;
+      case primeName:
+        cli = Cli.welcome();
+        final Prime prime = new Prime();
+        Engine.runGame(prime, cli, runCount);
         break;
       default:
         break;
