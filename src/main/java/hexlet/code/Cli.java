@@ -33,8 +33,8 @@ public final class Cli {
   }
 
   public static void printSelectGameMessage() {
-    final String message = "Please enter the game number and press Enter.\n" + " 1 - Greet\n" + " 2 - Even\n"
-        + " 3 - Calc\n" + " 4 - GCD\n" + " 0 - Exit";
+    final String message = "Please enter the game number and press Enter.\n" + "1 - Greet\n" + "2 - Even\n"
+        + "3 - Calc\n" + "4 - GCD\n" + "5 - Progression\n" + "0 - Exit";
     final String inlineMessage = "Your choice: ";
     Cli.printMessage(message);
     Cli.printInLine(inlineMessage);
