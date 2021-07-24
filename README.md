@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/ramzesnic/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/ramzesnic/java-project-lvl1/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a01b4e34acd35b679850/maintainability)](https://codeclimate.com/github/ramzesnic/java-project-lvl1/maintainability)
 ![Build](https://github.com/ramzesnic/java-project-lvl1/actions/workflows/build.yml/badge.svg)
 
 #### Asciinemes
