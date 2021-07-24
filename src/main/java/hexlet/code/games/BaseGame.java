@@ -32,8 +32,8 @@ public class BaseGame {
     this.question = quest;
   }
 
-  public final void setTrueAnswer(Integer answer) {
-    this.trueAnswer = answer;
+  public final void setTrueAnswer(Integer okAnswer) {
+    this.trueAnswer = okAnswer;
   }
 
   public final void setAnswer(Integer playerAnswer) {
