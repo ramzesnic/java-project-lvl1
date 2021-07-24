@@ -9,15 +9,25 @@ public final class Utils {
     return value % 2 == 0;
   }
 
-  public int sum(int x, int y) {
+  public static int sum(int x, int y) {
     return x + y;
   }
 
-  public int sub(int x, int y) {
+  public static int sub(int x, int y) {
     return x - y;
   }
 
-  public int mul(int x, int y) {
+  public static int mul(int x, int y) {
     return x * y;
+  }
+
+  public static int gcd(int x, int y) {
+    if (x == y) {
+      return x;
+    }
+    if (x > y) {
+      return gcd(x - y, y);
+    }
+    return gcd(x, y - x);
   }
 }
