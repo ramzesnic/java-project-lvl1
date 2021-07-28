@@ -4,9 +4,16 @@ import java.util.Arrays;
 import hexlet.code.Utils;
 import hexlet.code.games.interfaces.GameInterface;
 
-public final class Progression extends BaseGame implements GameInterface {
-  public Progression() {
-    super("What number is missing in the progression?");
+public final class Progression implements GameInterface {
+  private final String name = "Progression";
+  private final String description = "What number is missing in the progression?";
+
+  public String getName() {
+    return name;
+  }
+
+  public String getDescription() {
+    return description;
   }
 
   private Integer[] makeProgression(int start, int step, int length) {
@@ -18,12 +25,12 @@ public final class Progression extends BaseGame implements GameInterface {
   }
 
   private String makeQuestion(Integer[] progression, int hiddenIdx) {
-    final String[] progressionStr = Arrays.stream(progression).map(el -> el.toString()).toArray(String[]::new);
+    final String[] progressionStr = Arrays.stream(progression).map(String::valueOf).toArray(String[]::new);
     progressionStr[hiddenIdx] = "..";
     return String.join(" ", progressionStr);
   }
 
-  public void run() {
+  public String[] round() {
     final int progressionLength = 10;
     final int startMin = 1;
     final int startMax = 100;
@@ -33,7 +40,9 @@ public final class Progression extends BaseGame implements GameInterface {
     final int step = Utils.getRandom(stepMin, stepMax);
     final int hiddenIdx = Utils.getRandom(0, progressionLength - 1);
     final Integer[] progression = this.makeProgression(start, step, progressionLength);
-    this.setQuestion(this.makeQuestion(progression, hiddenIdx));
-    this.setTrueAnswer(progression[hiddenIdx]);
+    final String question = (this.makeQuestion(progression, hiddenIdx));
+    final String trueAnswer = (progression[hiddenIdx].toString());
+    final String[] data = { question, trueAnswer };
+    return data;
   }
 }

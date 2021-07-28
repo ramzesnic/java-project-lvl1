@@ -1,68 +1,74 @@
 package hexlet.code;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import hexlet.code.games.interfaces.GameInterface;
 
 public final class Cli {
   private String name;
+  private final Scanner sc = new Scanner(System.in);
 
-  Cli(String playerName) {
-    this.name = playerName;
-  }
-
-  public static void printMessage(String message) {
+  public void printMessage(String message) {
     System.out.println(message);
   }
 
-  public static void printInLine(String message) {
+  public void printInLine(String message) {
     System.out.print(message);
   }
 
-  public static String getAnwer() {
-    final Scanner sc = new Scanner(System.in);
-    String answer = "";
-    if (sc.hasNextLine()) {
-      answer = sc.nextLine();
-    }
+  public String getAnswer() {
+    final String answer = sc.nextLine();
     return answer;
   }
 
-  public static int getNumberAnwer() {
-    final Scanner sc = new Scanner(System.in);
+  public int getNumberAnswer() {
     final int answer = sc.nextInt();
     return answer;
   }
 
-  public static void printSelectGameMessage() {
-    final String message = "Please enter the game number and press Enter.\n" + "1 - Greet\n" + "2 - Even\n"
-        + "3 - Calc\n" + "4 - GCD\n" + "5 - Progression\n" + "6 - Prime\n" + "0 - Exit";
+  public void printSelectGameMessage(GameInterface[] games) {
+    final String headMessage = "Please enter the game number and press Enter.\n";
+    final String greatMessage = "1 - Great\n";
+    final String exitMessage = "0 - Exit";
+    final ArrayList<String> messageData = new ArrayList<String>();
+    messageData.add(headMessage);
+    messageData.add(greatMessage);
+    final int headLength = messageData.size();
+    for (int i = 0; i < games.length; i++) {
+      final int gameNumber = i + headLength;
+      messageData.add(gameNumber + " - " + games[i].getName() + "\n");
+    }
+    messageData.add(exitMessage);
+
     final String inlineMessage = "Your choice: ";
-    Cli.printMessage(message);
-    Cli.printInLine(inlineMessage);
+    this.printMessage(String.join("", messageData.toArray(new String[messageData.size()])));
+    this.printInLine(inlineMessage);
   }
 
   public void printCorrectAnswerMessage() {
-    Cli.printMessage("Correct!");
+    this.printMessage("Correct!");
   }
 
   public void printWrongAnswerMessage(String trueAnswer, String wrongAnswer) {
     final String answerMessage = String.format("'%s' is wrong answer ;(. Correct answer was '%s'.", wrongAnswer,
         trueAnswer);
     final String goodbyMessage = String.format("Let's try again, %s!", this.name);
-    Cli.printMessage(answerMessage);
-    Cli.printMessage(goodbyMessage);
+    this.printMessage(answerMessage);
+    this.printMessage(goodbyMessage);
   }
 
   public void printCongratulationsMessage() {
     final String message = String.format("Congratulations, %s!", this.name);
-    Cli.printMessage(message);
+    this.printMessage(message);
   }
 
-  public static Cli welcome() {
-    Cli.printMessage("Welcome to the Brain Games!");
-    Cli.printInLine("May I have your name? ");
-    final String name = Cli.getAnwer();
+  public void welcome() {
+    this.printMessage("Welcome to the Brain Games!");
+    this.printInLine("May Is have your name? ");
+    final String answer = this.getAnswer();
+    this.name = answer;
     final String message = String.format("Hello, %s!", name);
-    Cli.printMessage(message);
-    return new Cli(name);
+    this.printMessage(message);
   }
 }

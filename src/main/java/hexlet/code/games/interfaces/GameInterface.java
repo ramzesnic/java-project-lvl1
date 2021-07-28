@@ -1,15 +1,9 @@
 package hexlet.code.games.interfaces;
 
 public interface GameInterface {
+  String getName();
+
   String getDescription();
 
-  String getQuestion();
-
-  String getTrueAnswer();
-
-  String getAnswer();
-
-  boolean checkAnswer();
-
-  void run();
+  String[] round();
 }

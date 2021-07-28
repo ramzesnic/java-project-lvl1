@@ -3,12 +3,23 @@ package hexlet.code.games;
 import hexlet.code.Utils;
 import hexlet.code.games.interfaces.GameInterface;
 
-public final class Calc extends BaseGame implements GameInterface {
-  public Calc() {
-    super("What is the result of the expression?");
+public final class Calc implements GameInterface {
+  private final String name = "Calc";
+  private final String description = "What is the result of the expression?";
+
+  public String getName() {
+    return name;
   }
 
-  public void run() {
+  public String getDescription() {
+    return description;
+  }
+
+  private String intToString(int value) {
+    return Integer.valueOf(value).toString();
+  }
+
+  public String[] round() {
     final int minAction = 1;
     final int maxAction = 3;
     final int minXY = 1;
@@ -21,23 +32,29 @@ public final class Calc extends BaseGame implements GameInterface {
     final int x = Utils.getRandom(minXY, maxXY);
     final int y = Utils.getRandom(minXY, maxXY);
 
+    String question = "";
+    String trueAnswer = "";
+
     switch (randomActionValue) {
       case sum:
-        this.setQuestion(x + " + " + y);
-        this.setTrueAnswer(Utils.sum(x, y));
+        question = (x + " + " + y);
+        trueAnswer = this.intToString(Utils.sum(x, y));
         break;
 
       case sub:
-        this.setQuestion(x + " - " + y);
-        this.setTrueAnswer(Utils.sub(x, y));
+        question = (x + " - " + y);
+        trueAnswer = this.intToString(Utils.sub(x, y));
         break;
 
       case mul:
-        this.setQuestion(x + " * " + y);
-        this.setTrueAnswer(Utils.mul(x, y));
+        question = (x + " * " + y);
+        trueAnswer = this.intToString(Utils.mul(x, y));
 
       default:
         break;
     }
+
+    final String[] data = { question, trueAnswer };
+    return data;
   }
 }
