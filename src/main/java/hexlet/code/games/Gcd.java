@@ -22,7 +22,7 @@ public final class Gcd implements GameInterface {
     final int y = Utils.getRandom(minXY, maxXY);
     final String question = (x + " " + y);
     final String trueAnswer = Integer.valueOf(Utils.gcd(x, y)).toString();
-    final String[] data = { question, trueAnswer };
+    final String[] data = {question, trueAnswer};
     return data;
   }
 }

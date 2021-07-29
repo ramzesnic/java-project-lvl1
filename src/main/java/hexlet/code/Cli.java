@@ -23,7 +23,7 @@ public final class Cli {
   }
 
   public int getNumberAnswer() {
-    final int answer = sc.nextInt();
+    final int answer = Integer.parseInt(sc.nextLine());
     return answer;
   }
 

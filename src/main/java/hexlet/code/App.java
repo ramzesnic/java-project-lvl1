@@ -9,7 +9,7 @@ import hexlet.code.games.Prime;
 
 public class App {
   public static void main(String[] args) {
-    final GameInterface[] games = { new Even(), new Calc(), new Gcd(), new Progression(), new Prime() };
+    final GameInterface[] games = {new Even(), new Calc(), new Gcd(), new Progression(), new Prime()};
     final Cli cli = new Cli();
 
     cli.printSelectGameMessage(games);

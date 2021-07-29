@@ -54,7 +54,7 @@ public final class Calc implements GameInterface {
         break;
     }
 
-    final String[] data = { question, trueAnswer };
+    final String[] data = {question, trueAnswer};
     return data;
   }
 }

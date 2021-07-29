@@ -22,7 +22,7 @@ public final class Prime implements GameInterface {
     final String trueAnswerValue = Utils.checkPrime(questionValue) ? "yes" : "no";
     final String trueAnswer = trueAnswerValue;
     final String question = Integer.valueOf(questionValue).toString();
-    final String[] data = { question, trueAnswer };
+    final String[] data = {question, trueAnswer};
     return data;
   }
 }

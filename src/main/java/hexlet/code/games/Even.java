@@ -21,7 +21,7 @@ public final class Even implements GameInterface {
     final int questionValue = Utils.getRandom(minValue, maxValue);
     final String trueAnswer = Utils.checkEven(questionValue) ? "yes" : "no";
     final String question = Integer.valueOf(questionValue).toString();
-    final String[] data = { question, trueAnswer };
+    final String[] data = {question, trueAnswer};
     return data;
   }
 }

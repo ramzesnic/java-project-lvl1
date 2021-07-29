@@ -42,7 +42,7 @@ public final class Progression implements GameInterface {
     final Integer[] progression = this.makeProgression(start, step, progressionLength);
     final String question = (this.makeQuestion(progression, hiddenIdx));
     final String trueAnswer = (progression[hiddenIdx].toString());
-    final String[] data = { question, trueAnswer };
+    final String[] data = {question, trueAnswer};
     return data;
   }
 }
