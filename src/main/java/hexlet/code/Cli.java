@@ -65,7 +65,7 @@ public final class Cli {
 
   public void welcome() {
     this.printMessage("Welcome to the Brain Games!");
-    this.printInLine("May Is have your name? ");
+    this.printInLine("May I have your name? ");
     final String answer = this.getAnswer();
     this.name = answer;
     final String message = String.format("Hello, %s!", name);
