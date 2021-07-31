@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import hexlet.code.games.interfaces.GameInterface;
 
 public final class Cli {
   private String name;
@@ -17,33 +14,14 @@ public final class Cli {
     System.out.print(message);
   }
 
-  public String getAnswer() {
+  public String readString() {
     final String answer = sc.nextLine();
     return answer;
   }
 
-  public int getNumberAnswer() {
+  public int readInt() {
     final int answer = Integer.parseInt(sc.nextLine());
     return answer;
-  }
-
-  public void printSelectGameMessage(GameInterface[] games) {
-    final String headMessage = "Please enter the game number and press Enter.\n";
-    final String greatMessage = "1 - Great\n";
-    final String exitMessage = "0 - Exit";
-    final ArrayList<String> messageData = new ArrayList<String>();
-    messageData.add(headMessage);
-    messageData.add(greatMessage);
-    final int headLength = messageData.size();
-    for (int i = 0; i < games.length; i++) {
-      final int gameNumber = i + headLength;
-      messageData.add(gameNumber + " - " + games[i].getName() + "\n");
-    }
-    messageData.add(exitMessage);
-
-    final String inlineMessage = "Your choice: ";
-    this.printMessage(String.join("", messageData.toArray(new String[messageData.size()])));
-    this.printInLine(inlineMessage);
   }
 
   public void printCorrectAnswerMessage() {
@@ -66,7 +44,7 @@ public final class Cli {
   public void welcome() {
     this.printMessage("Welcome to the Brain Games!");
     this.printInLine("May I have your name? ");
-    final String answer = this.getAnswer();
+    final String answer = this.readString();
     this.name = answer;
     final String message = String.format("Hello, %s!", name);
     this.printMessage(message);

@@ -6,6 +6,13 @@ import hexlet.code.games.interfaces.GameInterface;
 public final class Calc implements GameInterface {
   private final String name = "Calc";
   private final String description = "What is the result of the expression?";
+  private final int minAction = 1;
+  private final int maxAction = 3;
+  private final int minXY = 1;
+  private final int maxXY = 100;
+  private final int sum = 1;
+  private final int sub = 2;
+  private final int mul = 3;
 
   public String getName() {
     return name;
@@ -16,21 +23,14 @@ public final class Calc implements GameInterface {
   }
 
   private String intToString(int value) {
-    return Integer.valueOf(value).toString();
+    return String.valueOf(value);
   }
 
   public String[] round() {
-    final int minAction = 1;
-    final int maxAction = 3;
-    final int minXY = 1;
-    final int maxXY = 100;
-    final int sum = 1;
-    final int sub = 2;
-    final int mul = 3;
 
-    final int randomActionValue = Utils.getRandom(minAction, maxAction);
-    final int x = Utils.getRandom(minXY, maxXY);
-    final int y = Utils.getRandom(minXY, maxXY);
+    final int randomActionValue = Utils.getRandom(this.minAction, this.maxAction);
+    final int x = Utils.getRandom(this.minXY, this.maxXY);
+    final int y = Utils.getRandom(this.minXY, this.maxXY);
 
     String question = "";
     String trueAnswer = "";
