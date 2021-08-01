@@ -43,7 +43,7 @@ public class App {
     messageData.add(exitMessage);
 
     final String inlineMessage = "Your choice: ";
-    messageData.forEach(str -> cli.printMessage(str));
+    messageData.forEach(cli::printMessage);
     cli.printInLine(inlineMessage);
   }
 }
