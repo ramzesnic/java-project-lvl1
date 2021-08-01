@@ -19,20 +19,18 @@ public class App {
     final int gameIdxOffset = 2;
     final int gameIdx = action - gameIdxOffset;
 
-    if (action <= 0 && gameIdx >= games.length) {
-      return;
-    }
-    if (action == 1) {
-      cli.welcome();
+    if (action <= 0 || gameIdx >= games.length) {
       return;
     }
     cli.welcome();
-    Engine.runGame(games[gameIdx], cli, runCount);
+    if (action != 1) {
+      Engine.runGame(games[gameIdx], cli, runCount);
+    }
   }
 
   private static void printSelectGameMessage(GameInterface[] games, Cli cli) {
-    final String headMessage = "Please enter the game number and press Enter.\n";
-    final String greatMessage = "1 - Great\n";
+    final String headMessage = "Please enter the game number and press Enter.";
+    final String greatMessage = "1 - Great";
     final String exitMessage = "0 - Exit";
     final ArrayList<String> messageData = new ArrayList<String>();
     messageData.add(headMessage);
@@ -40,12 +38,12 @@ public class App {
     final int headLength = messageData.size();
     for (int i = 0; i < games.length; i++) {
       final int gameNumber = i + headLength;
-      messageData.add(gameNumber + " - " + games[i].getName() + "\n");
+      messageData.add(gameNumber + " - " + games[i].getName());
     }
     messageData.add(exitMessage);
 
     final String inlineMessage = "Your choice: ";
-    cli.printMessage(String.join("", messageData.toArray(new String[messageData.size()])));
+    messageData.forEach(str -> cli.printMessage(str));
     cli.printInLine(inlineMessage);
   }
 }
